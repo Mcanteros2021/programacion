@@ -77,4 +77,47 @@ public class Conjunto {
         }
     }
 
+    //Métodos de clase
+    static boolean incluido(Conjunto c1, Conjunto c2) {
+        for (int i = 0; i < c1.mNumElementos; i++) {
+            if (!c2.estaElemento(c1.mElementos[i])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    static Conjunto union(Conjunto c1,Conjunto c2) {
+        Conjunto c3 = new Conjunto();
+
+        c3.insertarConjunto(c1);
+        c3.insertarConjunto(c2);
+
+        return c3;
+    }
+
+    static Conjunto interseccion(Conjunto c1, Conjunto c2) {
+        Conjunto c3 = new Conjunto();
+
+        for (int i = 0; i < c1.mNumElementos; i++) {
+            if (c2.estaElemento(c1.mElementos[i])) {
+                c3.insertarElemento(c1.mElementos[i]);
+            }
+        }
+
+        return c3;
+    }
+
+    static Conjunto diferencia(Conjunto c1, Conjunto c2) {
+        Conjunto c3 = new Conjunto();
+
+        for (int i = 0; i < c1.mNumElementos; i++) {
+            if (!c2.estaElemento(c1.mElementos[i])) {
+                c3.insertarElemento(c1.mElementos[i]);
+            }
+        }
+
+        return c3;
+    }
 }
