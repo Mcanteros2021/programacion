@@ -29,8 +29,8 @@ public class Pedido {
         String output = "";
         output += this.pizza.toString();
 
-        output += "---->"+ momento.get(Calendar.DATE)+"/"+momento.get(Calendar.MONTH)+"/"+
-                momento.get(Calendar.YEAR)+momento.get(Calendar.HOUR_OF_DAY)+":"+
+        output += "PEDIDO: "+ momento.get(Calendar.DATE)+"/"+(momento.get(Calendar.MONTH)+1)+"/"+
+                momento.get(Calendar.YEAR)+" "+momento.get(Calendar.HOUR_OF_DAY)+":"+
                 momento.get(Calendar.MINUTE);
 
         return output;

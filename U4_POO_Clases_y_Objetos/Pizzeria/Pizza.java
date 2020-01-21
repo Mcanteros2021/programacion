@@ -42,12 +42,12 @@ public class Pizza {
     @Override
     public String toString() {
         String output = "";
-        output += this.size.toString();
+        output += "\n"+this.size.toString()+"\n";
         if (this.numIngredientes == 0 ) {
             output += "Pizza Vacía";
         } else {
             for (int i = 0; i < this.numIngredientes ; i++) {
-                output += ingredientes[i].getNombre()+"-"+ingredientes[i].getCalorias();
+                output += ingredientes[i].getNombre()+"-"+ingredientes[i].getCalorias()+"\n";
             }
         }
         return output;
