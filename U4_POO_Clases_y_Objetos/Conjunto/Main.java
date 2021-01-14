@@ -32,9 +32,12 @@ public class Main {
 
         System.out.println(c1);
 
-        c2.removeConjunnto(c1);
-
         System.out.println(c2);
+
+        //System.out.println(Conjunto.union(c1,c2));
+        //System.out.println(Conjunto.interseccion(c1,c2));
+        System.out.println(Conjunto.diferencia(c1,c2));
+        System.out.println(Conjunto.diferencia(c2,c1));
 
 
     }

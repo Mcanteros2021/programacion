@@ -76,13 +76,13 @@ public class Conjunto {
         return false;
     }
 
-    public void removeConjunnto(Conjunto conjunto) {
+    public void removeConjunto(Conjunto conjunto) {
         for (int i = 0; i < conjunto.getElementos().length; i++) {
             removeElement(conjunto.getElementos()[i]);
         }
     }
 
-    private boolean esta(int elemento) {
+    public boolean esta(int elemento) {
         for (int i = 0; i < elementos.length ; i++) {
             if (elementos[i]==elemento) {
                 return true;
@@ -97,5 +97,45 @@ public class Conjunto {
         return "Conjunto{" +
                 "elementos=" + Arrays.toString(elementos) +
                 '}';
+    }
+
+    static boolean incluido(Conjunto c1,Conjunto c2) {
+        for (int i = 0; i < c1.getElementos().length; i++) {
+            if (!c2.esta(c1.getElementos()[i])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    static Conjunto union(Conjunto c1,Conjunto c2) {
+        Conjunto resultado = new Conjunto(c1.getElementos().length+c2.getElementos().length);
+
+        resultado.addConjunto(c1);
+        resultado.addConjunto(c2);
+
+        return resultado;
+    }
+
+    static Conjunto interseccion(Conjunto c1,Conjunto c2) {
+        Conjunto resultado = new Conjunto(c1.getElementos().length+c2.getElementos().length);
+
+        for (int i = 0; i < c1.getElementos().length; i++) {
+            if (c2.esta(c1.getElementos()[i])) {
+                resultado.addElement(c1.getElementos()[i]);
+            }
+        }
+
+        return resultado;
+    }
+
+    static Conjunto diferencia(Conjunto c1,Conjunto c2) {
+        Conjunto resultado = new Conjunto(c1.getElementos().length+c2.getElementos().length);
+
+        resultado.addConjunto(c1);
+        resultado.removeConjunto(c2);
+
+        return resultado;
     }
 }
